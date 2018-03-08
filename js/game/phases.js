@@ -13,6 +13,7 @@ import Enemy from './objects/Enemy/Enemy'
 // functions
 import {throttleGenerateEnemies} from './functions/enemies'
 import {collisionWithPlane, collisionWithBullet} from './functions/collisions'
+import {updateDifficulty} from './functions/difficulty'
 
 //
 // PHASES LOOP
@@ -39,7 +40,7 @@ export var create = function (game) {
   // important to get collision system working
   game.physics.startSystem(Phaser.Physics.ARCADE)
   game.physics.arcade.gravity.y = 200
- 
+
   objects.bg = new Background(game)
   objects.bg.create()
 
@@ -54,6 +55,7 @@ export var update = function (game) {
   // console.log('========= UPDATE PHASE =============')
   objects.hero.update()
   objects.bg.update()
+  updateDifficulty()
 
   throttleGenerateEnemies(game)
   each(objects.enemies, enemy => {

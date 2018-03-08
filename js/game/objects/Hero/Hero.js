@@ -11,7 +11,7 @@ class Hero  {
   }
 
   static preload(game) {
-    game.load.image('hero', './js/game/objects/Hero/hero.png')
+    game.load.image('hero', 'js/game/objects/Hero/hero.png')
   }
 
   create() {
@@ -37,10 +37,10 @@ class Hero  {
     setTimeout(() => {
       this.bullets.splice(1, 1)
       bullet.object.kill()
-    }, 4000)
+    }, state.hero.bulletLifeSpan)
   }
 
-  throttleFire = throttle(this.fire, 100)
+  throttleFire = throttle(this.fire, state.hero.shootingSpeed)
 
   update() {
     if (this.game.input.activePointer.isDown) this.throttleFire()

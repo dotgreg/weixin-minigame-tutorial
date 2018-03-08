@@ -5,7 +5,6 @@ import './js/libs/stub'
 // import the states
 import * as phases from './js/game/phases'
 
-
 // Initialize the Game object
 window.PIXI = require('./js/libs/pixi')
 window.p2 = require('./js/libs/p2')

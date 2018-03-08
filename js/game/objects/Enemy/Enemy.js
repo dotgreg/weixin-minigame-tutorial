@@ -10,7 +10,7 @@ class Enemy  {
   }
 
   static preload(game) {
-    game.load.image('enemy', './js/game/objects/Enemy/enemy.png')
+    game.load.image('enemy', 'js/game/objects/Enemy/enemy.png')
   }
 
   create() {

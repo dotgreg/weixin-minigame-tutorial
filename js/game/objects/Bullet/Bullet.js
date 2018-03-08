@@ -7,7 +7,7 @@ class Bullet  {
   }
 
   static preload(game) {
-    game.load.image('bullet', './js/game/objects/Bullet/bullet.png')
+    game.load.image('bullet', 'js/game/objects/Bullet/bullet.png')
   }
 
   create() {

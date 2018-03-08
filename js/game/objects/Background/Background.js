@@ -5,7 +5,7 @@ class Background  {
   }
 
   static preload(game) {
-    game.load.image('bg', './js/game/objects/Background/bg.jpg')
+    game.load.image('bg', 'js/game/objects/Background/bg.jpg')
   }
 
   create() {
