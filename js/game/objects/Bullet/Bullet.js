@@ -1,6 +1,5 @@
 class Bullet  {
   constructor(props) {
-    console.log(props)
     this.game = props.game
     this.position = props.position || {x:0,y:0}
     this.direction = props.direction || 'normal'
@@ -13,12 +12,13 @@ class Bullet  {
 
   create() {
     this.object = this.game.add.sprite(this.position.x, this.position.y, 'bullet')
-    // this.object.body.bounce.y = 0.95
-    // this.object.body.collideWorldBounds = true
+    this.game.physics.enable(this.object, Phaser.Physics.ARCADE)
+    this.object.body.collideWorldBounds = false
+    this.object.body.allowGravity = false
   }
 
   update() {
-    (this.direction === 'inverted') ? this.object.position.y += 10 : this.object.position.y -= 10
+    (this.direction === 'inverted') ? this.object.body.position.y += 10 : this.object.body.position.y -= 10
   }
 
   destroy() {

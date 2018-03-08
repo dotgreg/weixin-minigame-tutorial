@@ -1,5 +1,7 @@
+import state from '../../state'
+
 import Bullet from '../Bullet/Bullet'
-import {each} from '../../../libs/lodash'
+import {each, throttle} from '../../../libs/lodash'
 
 class Hero  {
   constructor(game) {
@@ -18,30 +20,30 @@ class Hero  {
     this.object.inputEnabled = true
     this.object.input.enableDrag()
 
-    // this.game.physics.arcade.enable([this.object]);
     this.game.physics.enable(this.object, Phaser.Physics.ARCADE)
-    // this.object.body.enable = true
-    // this.object.body.immovable = false
     this.object.body.collideWorldBounds = true
-    // this.object.body.bounce.setTo(1, 1)
-    // this.object.body.bounce.y = 1
     this.object.body.allowGravity = false
-
-    // console.log(this.object)
-    // this.object.body.collideWorldBounds = true
 
     this.object.events.onInputDown.add(this.fire.bind(this))
   }
 
   fire () {
-    console.log('FIRING!')
-
-    var bullet = new Bullet({game: this.game, position: this.object.position})
+    if (state.lifes < 1) return false
+    let bullet = new Bullet({game: this.game, position: this.object.position})
     bullet.create()
     this.bullets.push(bullet)
+    let index = this.bullets.length
+
+    setTimeout(() => {
+      this.bullets.splice(1, 1)
+      bullet.object.kill()
+    }, 4000)
   }
 
+  throttleFire = throttle(this.fire, 100)
+
   update() {
+    if (this.game.input.activePointer.isDown) this.throttleFire()
     if (this.bullets.length > 0) each(this.bullets, bullet => bullet.update())
   }
 }

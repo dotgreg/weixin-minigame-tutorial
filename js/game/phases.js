@@ -2,6 +2,7 @@ import {each} from '../libs/lodash'
 
 // A single namespace for all the objects we are gonna create
 import objects from './objects'
+import state from './state'
 
 // objects to create
 import Hero from './objects/Hero/Hero'
@@ -10,8 +11,8 @@ import Bullet from './objects/Bullet/Bullet'
 import Enemy from './objects/Enemy/Enemy'
 
 // functions
-import {throttleGenerateEnemy} from './functions/enemies.js'
-import {collisionWithPlane} from './functions/collisions.js'
+import {throttleGenerateEnemies} from './functions/enemies'
+import {collisionWithPlane, collisionWithBullet} from './functions/collisions'
 
 //
 // PHASES LOOP
@@ -38,48 +39,35 @@ export var create = function (game) {
   // important to get collision system working
   game.physics.startSystem(Phaser.Physics.ARCADE)
   game.physics.arcade.gravity.y = 200
-
+ 
   objects.bg = new Background(game)
   objects.bg.create()
 
   objects.hero = new Hero(game)
   objects.hero.create()
 
-  objects.enemy = new Enemy({game:game, position:{x:300,y:0}, speed:3})
-  objects.enemy.create()
-
-
-  // game.physics.startSystem(Phaser.Physics.ARCADE)
-  // game.physics.arcade.gravity.y = 200
-  // game.physics.arcade.enable([objects.hero, objects.enemy]);
-  // console.log(objects.enemy)
-  // objects.enemy.object.body.bounce.y = 0.95
-  // objects.enemy.object.body.collideWorldBounds = true
-  //
-  // objects.hero.object.body.bounce.y = 0.95
-  // objects.hero.object.body.collideWorldBounds = true
-  // objects.hero.object.anchor.setTo(0.8)
-  // console.log(game.physics.arcade)
+  objects.text.score = game.add.text(16, 16, `score: ${state.score}`, { fontSize: '32px', fill: '#FFF' });
+  objects.text.lifes = game.add.text(16, 50, `lifes: ${state.lifes}`, { fontSize: '32px', fill: '#FFF' });
 }
 
 export var update = function (game) {
   // console.log('========= UPDATE PHASE =============')
-
   objects.hero.update()
   objects.bg.update()
 
-  objects.enemy.update()
-  // throttleGenerateEnemy(game)
-  game.physics.arcade.collide(objects.hero.object, objects.enemy.object, collisionWithPlane, null, this);
-
-  if (objects.enemies.length > 0) each(objects.enemies, enemy => {
+  throttleGenerateEnemies(game)
+  each(objects.enemies, enemy => {
     enemy.update()
-    game.physics.arcade.collide(objects.hero, enemy);
+    game.physics.arcade.collide(objects.hero.object, enemy.object, collisionWithPlane, null, this);
+    each(objects.hero.bullets, bullet => {
+      // console.log(objects.hero.bullets.length)
+      game.physics.arcade.collide(enemy.object, bullet.object, collisionWithBullet, null, this)
+    })
   })
 }
 
 export var render = function (game) {
   // console.log('========= RENDER PHASE =============')
   game.debug.body(objects.hero.object);
-  game.debug.body(objects.enemy.object);
+  each(objects.enemies, enemy => game.debug.body(enemy.object))
 }

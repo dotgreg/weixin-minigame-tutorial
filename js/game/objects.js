@@ -1,7 +1,11 @@
 var objects = {
   hero: null,
   bg: null,
-  enemies: []
+  enemies: [],
+  text: {
+    score: null,
+    lifes: null,
+  }
 }
 
 window.objects = objects

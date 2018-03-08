@@ -8,13 +8,13 @@ import {getCurrentTime} from './time'
 let difficulty = 0
 
 const generateEnemy = (game) => {
-  difficulty = getCurrentTime() / 50
+  difficulty = getCurrentTime() / 100
 
-  let enemy = new Enemy({game:game, position:{x:random(0, 500),y:0}, speed:random(5 + difficulty, 10  + difficulty)})
+  let enemy = new Enemy({game:game, position:{x:random(0, 500),y:0}, speed:random(2 + difficulty, 5  + difficulty)})
   enemy.create()
+
   objects.enemies.push(enemy)
 }
 
-export const throttleGenerateEnemy = throttle(generateEnemy, random(500 , 1000))
-
-// export default test = []
+export const throttleGenerateEnemies = throttle(generateEnemy, random(500 , 1000))
+ 
