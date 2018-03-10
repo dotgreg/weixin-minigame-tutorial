@@ -80,7 +80,3 @@ export const render = function (game) {
 export const shutdown = function (game) {
   console.log('========= SHUTDOWN PHASE =============')
 }
-
-export const restart = function (game) {
-  console.log('========= restart PHASE =============')
-}

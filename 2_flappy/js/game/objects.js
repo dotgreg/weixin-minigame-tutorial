@@ -20,7 +20,8 @@ const init = {
   pipes: [],
   buttonRestart: null,
   buttonLeaderboard: null,
-  textScore: null
+  textScore: null,
+  textLoading: null
 }
 
 initObjects()
