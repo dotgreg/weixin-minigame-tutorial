@@ -7,7 +7,7 @@ export const collisionWithPipe = (sprite1, sprite2) => {
   state.gameState = 'ended'
 }
 
-export const collisionWithFloor = (sprite1) => {
+export const collisionWithBorders = (sprite1) => {
   sprite1.kill()
   state.gameState = 'ended'
 }

@@ -1,7 +1,7 @@
 import {birdJSON} from '../../../../images/bird'
 import state from '../../state'
 
-import {collisionWithFloor} from '../../managers/collisions'
+import {collisionWithBorders} from '../../managers/collisions'
 
 class Bird  {
   constructor(game) {
@@ -13,6 +13,7 @@ class Bird  {
     let json = JSON.parse(birdJSON)
     // import
     game.load.atlasJSONHash('bird', 'images/bird.png', null, json);
+    // game.load.image('bird', 'images/pipe-top.png')
   }
 
   create() {
@@ -26,7 +27,6 @@ class Bird  {
     this.game.physics.enable(this.object, Phaser.Physics.ARCADE)
     this.object.body.allowGravity = true
 
-    // this.game.events.onInputDown.add(this.jump.bind(this))
     this.game.input.onDown.add(this.jump.bind(this))
   }
 
@@ -35,8 +35,8 @@ class Bird  {
   }
 
   update() {
-    if (this.object.body.position.y > this.game.world.height - 300) collisionWithFloor(this.object)
-    // console.log(this.object.body.position.y, this.game.world.height - 100)
+    if (this.object.body.position.y > this.game.world.height - 300) collisionWithBorders(this.object)
+    if (this.object.body.position.y < 0) collisionWithBorders(this.object)
   }
 }
 

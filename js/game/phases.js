@@ -1,4 +1,4 @@
-import {each} from '../libs/lodash'
+import {each, isObject} from '../libs/lodash'
 
 // A single namespace for all the objects we are gonna create
 import objects from './objects'
@@ -23,39 +23,45 @@ export const preload = function (game) {
 
   Floor.preload(game)
   Bird.preload(game)
-  Background.preload(game)
   Pipe.preload(game)
+  Background.preload(game)
   GameButton.preload('restart', game)
   GameButton.preload('leaderboard', game)
 }
 
-
+var startUpdate = false
 export const create = function (game) {
   console.log('========= CREATE PHASE =============')
 
+  startUpdate = false
+  setTimeout(() => {
+    startUpdate = true
 
-  // important to get drag drop working
-  game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
-  game.scale.pageAlignHorizontally = true
-  game.scale.pageAlignVertically = true
+    // important to get drag drop working
+    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
+    game.scale.pageAlignHorizontally = true
+    game.scale.pageAlignVertically = true
 
-  // important to get collision system working
-  game.physics.startSystem(Phaser.Physics.ARCADE)
-  game.physics.arcade.gravity.y = state.gravity
+    // important to get collision system working
+    game.physics.startSystem(Phaser.Physics.ARCADE)
+    game.physics.arcade.gravity.y = state.gravity
 
-  objects.bg = new Background(game)
-  objects.bg.create()
 
-  objects.floor = new Floor(game)
-  objects.floor.create()
+    objects.bg = new Background(game)
+    objects.bg.create()
 
-  objects.bird = new Bird(game)
-  objects.bird.create()
+    objects.floor = new Floor(game)
+    objects.floor.create()
 
-  objects.textScore = game.add.text(16, 16, `score: ${state.score}`, { fontSize: '32px', fill: '#FFF' });
+    objects.bird = new Bird(game)
+    objects.bird.create()
+
+    objects.textScore = game.add.text(16, 16, `score: ${state.score}`, { fontSize: '32px', fill: '#FFF' });
+  }, 100)
 }
 
 export const update = function (game) {
+  if (!startUpdate) return false
   // console.log('========= UPDATE PHASE =============')
 
   objects.bg.update()

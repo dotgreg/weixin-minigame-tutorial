@@ -1,6 +1,6 @@
 import state from '../../state'
 
-class Background  {
+class Background2  {
   constructor(game) {
     this.game = game
     this.object = {}
@@ -12,11 +12,13 @@ class Background  {
 
   create() {
     this.object = this.game.add.tileSprite(0, 0, this.game.world.width, this.game.world.height, 'bg')
+    // this.object = this.game.add.sprite(0, 0, 'bg')
   }
 
   update() {
     this.object.tilePosition.x -= state.speed
+    // this.object.position.x += state.speed
   }
 }
 
-export default Background
+export default Background2

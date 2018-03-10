@@ -12,9 +12,6 @@ class Floor  {
 
   create() {
     this.object = this.game.add.tileSprite(0, this.game.world.height - 248, this.game.world.width, 248, 'floor')
-
-    this.game.physics.enable(this.object, Phaser.Physics.ARCADE)
-    this.object.body.allowGravity = false
   }
 
   update() {
