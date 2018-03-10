@@ -19,6 +19,7 @@ const init = {
   floor: null,
   pipes: [],
   buttonRestart: null,
+  buttonLeaderboard: null,
   textScore: null
 }
 

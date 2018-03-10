@@ -26,6 +26,7 @@ export const preload = function (game) {
   Background.preload(game)
   Pipe.preload(game)
   GameButton.preload('restart', game)
+  GameButton.preload('leaderboard', game)
 }
 
 
