@@ -4,7 +4,7 @@ import GameButton from '../objects/Button/Button'
 
 import {displayLeaderboard} from './leaderboard'
 import {getUserInfos} from './wechat'
-import {saveUserScore} from './db'
+import {saveUserScore, createFakeUsers} from './db'
 
 export const endGame = (game) => {
   game.paused = true
@@ -19,6 +19,7 @@ export const endGame = (game) => {
   // recording score in db
   getUserInfos(infos => {
     saveUserScore(infos, state.score, () => {
+      createFakeUsers()
     })
   })
 }

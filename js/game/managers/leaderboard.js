@@ -30,20 +30,3 @@ export const getBestScores = callback => {
     callback(res)
   })
 }
-
-//
-// HYDRATING WITH FAKE DATAS
-//
-setTimeout(() => {
-  saveUserScore({
-    name: 'Jack Ma',
-    picture: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTInShcaY9KZ8ISG7pt9Pgt8rUuHlFMNAaBichHq3vFMGLwEmNLYlxNibNRC2n8I9xGbVSMOSaBuTGFA/0",
-    openid: 'AAAAAA32321cahsadkfjhadgfa123133123',
-  }, 3)
-
-  saveUserScore({
-    name: 'Ma Huateng',
-    picture: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTInShcaY9KZ8ISG7pt9Pgt8rUuHlFMNAaBichHq3vFMGLwEmNLYlxNibNRC2n8I9xGbVSMOSaBuTGFA/0",
-    openid: '2SSSSS3223dsaffsadkfjhadgfa123133123',
-  }, 5)
-}, 1000)
