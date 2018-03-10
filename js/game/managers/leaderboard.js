@@ -47,7 +47,6 @@ export const getBestScores = callback => {
 //
 // HYDRATING WITH FAKE DATAS
 //
-// console.log(2)
 setTimeout(() => {
   saveUserScore({
     name: 'Jack Ma',

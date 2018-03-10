@@ -10,7 +10,7 @@
 	"compileType": "game",
 	"libVersion": "game",
 	"appid": "touristappid",
-	"projectname": "minigame-for-lewagon",
+	"projectname": "flappy-bird-minigame",
 	"isGameTourist": true,
 	"condition": {
 		"search": {
