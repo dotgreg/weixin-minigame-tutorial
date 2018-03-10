@@ -49,6 +49,7 @@ export var create = function (game) {
 
   objects.text.score = game.add.text(16, 16, `score: ${state.score}`, { fontSize: '32px', fill: '#FFF' });
   objects.text.lifes = game.add.text(16, 50, `lifes: ${state.lifes}`, { fontSize: '32px', fill: '#FFF' });
+  objects.text.difficulty = game.add.text(16, 90, `difficulty: ${state.difficulty.value}`, { fontSize: '32px', fill: '#FFF' });
 }
 
 export var update = function (game) {
@@ -56,6 +57,8 @@ export var update = function (game) {
   objects.hero.update()
   objects.bg.update()
   updateDifficulty()
+
+  objects.text.difficulty.text = `difficulty: ${state.difficulty.value}`
 
   throttleGenerateEnemies(game)
   each(objects.enemies, enemy => {
@@ -70,6 +73,6 @@ export var update = function (game) {
 
 export var render = function (game) {
   // console.log('========= RENDER PHASE =============')
-  game.debug.body(objects.hero.object);
-  each(objects.enemies, enemy => game.debug.body(enemy.object))
+  // game.debug.body(objects.hero.object);
+  // each(objects.enemies, enemy => game.debug.body(enemy.object))
 }

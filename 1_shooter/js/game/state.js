@@ -1,6 +1,9 @@
 var state = {
-  difficulty: 0,
-  difficultySpeed: 30,
+  difficulty: {
+    value: 0,
+    speed: 200,
+    end: 20
+  },
   hero: {
     shootingSpeed: 500,
     bulletLifeSpan: 2000
