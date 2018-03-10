@@ -1,10 +1,19 @@
 import AV from '../../libs/av-weapp'
-import {each} from '../../libs/lodash'
+import {each, isObject} from '../../libs/lodash'
 
 AV.init({
  appId: 'QyNXyhk2rss5mu96NqgBMRSi-gzGzoHsz',
  appKey: 'vvxe9iLyeQcQOUMKdkWGG9Y9'
 })
+
+export const saveUserScore = (infos, score, callback) => {
+  infos.score = score
+  getUser(infos.openid, user => {
+    if (!isObject(user)) createNewUser(infos, callback)
+    else if (user.attributes.score < infos.score) setUserScore(user, infos.score, callback)
+    else callback()
+  })
+}
 
 export const getUser = (openid, callback) => {
   console.log('=> getUser')

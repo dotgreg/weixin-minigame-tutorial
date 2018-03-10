@@ -1,38 +1,26 @@
-import {random, isObject, orderBy} from '../../libs/lodash'
-
-import md5 from '../../libs/md5.min'
+import {random, orderBy, each} from '../../libs/lodash'
 
 import state from '../state'
 import objects from '../objects'
 
-import {getUser, getAllUsers, createNewUser, setUserScore} from './db'
+import {getUser, getAllUsers, createNewUser, setUserScore, saveUserScore} from './db'
+import {getUserInfos} from './wechat'
 
+export const displayLeaderboard = (game, callback) => {
+  getUserInfos(infos => {
+    saveUserScore(infos, state.score, () => {
+      getBestScores(scores => {
 
-export const getUserInfos = callback => {
-  console.log('getUserInfos')
-
-  wx.login({
-    success:() => {
-      wx.getUserInfo({
-        success: res => {
-          callback({
-            name: res.userInfo.nickName,
-            picture: res.userInfo.avatarUrl,
-            // no openid is provided here, so I created a unique id from md5 of some personal informations, its not perfect, but would do the trick
-            openid: md5(`${res.userInfo.nickName}${res.userInfo.avatarUrl}${res.userInfo.city}${res.userInfo.country}${res.userInfo.province}${res.userInfo.gender}`)
-          })
-        }
+        each(scores, (score, i) => {
+          if (i > 5) return false
+          console.log('each', i)
+          let position = {x: (game.world.width / 2), y: (game.world.height / 2) + (35 * i) - 100}
+          let text = game.add.text(position.x, position.y, `${score.name} - ${score.score}`, { fontSize: '25px', fill: '#fff' });
+          text.anchor.setTo(0.5, 0.5);
+        })
+        callback()
       })
-    }
-  })
-}
-
-export const saveUserScore = (infos, score, callback) => {
-  infos.score = score
-  getUser(infos.openid, user => {
-    if (!isObject(user)) createNewUser(infos, callback)
-    else if (user.attributes.score < infos.score) setUserScore(user, infos.score, callback)
-    else callback()
+    })
   })
 }
 
@@ -42,7 +30,6 @@ export const getBestScores = callback => {
     callback(res)
   })
 }
-
 
 //
 // HYDRATING WITH FAKE DATAS

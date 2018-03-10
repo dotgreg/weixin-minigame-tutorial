@@ -3,7 +3,7 @@ import {each, isArray} from '../libs/lodash'
 const state = {}
 
 //
-// INIT AND REINIT LOGIC
+// INIT LOGIC
 //
 
 export const initState = () => {
