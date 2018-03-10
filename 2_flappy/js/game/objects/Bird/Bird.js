@@ -1,6 +1,8 @@
 import {birdJSON} from '../../../../images/bird'
 import state from '../../state'
 
+import {collisionWithFloor} from '../../managers/collisions'
+
 class Bird  {
   constructor(game) {
     this.game = game
@@ -33,6 +35,8 @@ class Bird  {
   }
 
   update() {
+    if (this.object.body.position.y > this.game.world.height - 300) collisionWithFloor(this.object)
+    // console.log(this.object.body.position.y, this.game.world.height - 100)
   }
 }
 
