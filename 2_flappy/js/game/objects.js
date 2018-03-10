@@ -18,8 +18,8 @@ const init = {
   bg: null,
   floor: null,
   pipes: [],
-  restart: null,
-  score: null
+  buttonRestart: null,
+  textScore: null
 }
 
 initObjects()

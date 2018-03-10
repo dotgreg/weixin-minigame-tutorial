@@ -50,6 +50,8 @@ export const create = function (game) {
 
   objects.bird = new Bird(game)
   objects.bird.create()
+
+  objects.textScore = game.add.text(16, 16, `score: ${state.score}`, { fontSize: '32px', fill: '#FFF' });
 }
 
 export const update = function (game) {

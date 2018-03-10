@@ -1,4 +1,19 @@
-var state = {
+import {each, isArray} from '../libs/lodash'
+
+const state = {}
+
+//
+// INIT AND REINIT LOGIC
+//
+
+export const initState = () => {
+  each(init, (value, prop) => {
+    if (isArray(value)) objects[prop] = []
+    else state[prop] = value
+  })
+}
+
+var init = {
   gravity: 800,
   gravityJump: 400,
   pipePosMax: 150,
@@ -8,6 +23,9 @@ var state = {
   pipeGenerationTime: 1500,
   gameState: 'started'
 }
+
+initState()
+
 
 window.state = state
 

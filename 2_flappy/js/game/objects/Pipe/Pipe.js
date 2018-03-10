@@ -35,7 +35,7 @@ class Pipe  {
   increaseScoreOnce() {
     if (this.isReached) return false
     state.score ++
-    console.log(state.score)
+    objects.textScore.text = `score: ${state.score}`
   }
 
   checkIfReachedMiddle = () => {
