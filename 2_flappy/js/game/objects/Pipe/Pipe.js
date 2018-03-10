@@ -45,7 +45,6 @@ class Pipe  {
     this.isReached = true
   }
 
-
   kill() {
     this.top.kill()
     this.bottom.kill()

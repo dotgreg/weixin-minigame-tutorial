@@ -14,11 +14,8 @@ class GameButton  {
   }
 
   create() {
-    // this.object = this.game.add.sprite(this.game.world.width / 2, this.game.world.height / 2, this.name)
     this.object = this.game.add.button(this.game.world.width / 2, this.game.world.height / 2, this.name, this.onClick, this, 1000, 1, 0)
-    // this.object.inputEnabled = true
-    // this.object.events.onInputDown.add(this.onClick)
-    // this.object.position.z = 10000
+    this.object.anchor.setTo(0.5, 0.5);
   }
 
 }
