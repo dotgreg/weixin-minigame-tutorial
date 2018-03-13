@@ -240,6 +240,7 @@ https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/open-ability/authorize.html?
 ## 9) Some advices before starting
 
 **Don’t believe the preview, Always test on real devices**
+
 example of a code working on emulator but not on real device
 
       static preload(game) {
@@ -248,6 +249,7 @@ example of a code working on emulator but not on real device
       }
 
 **Limit Third Parties Libraries, As adaptation is often needed**
+
 Including libraries like lodash are not working out of the box. You often need to go into the source code and modify the part depending on DOM/BOM Apis.
 On Lodash, I solve the problem by including module per module and not the whole library.
 
@@ -257,6 +259,7 @@ On Lodash, I solve the problem by including module per module and not the whole 
     npm install --save lodash
 
 **Chunk you code in smaller files to ease debug**
+
 The current IDE debugging system is working differently from their counterparts on chromium and firefox. One of the biggest problems I have seen is many problems will end up showing a very vague error message without indicating where the problem is coming from, except the file it is failing into.
 Chunking your code in smaller parts is then really important, **as finding a typo mistake on a 1000 lines file without a hint is much more difficult** than on a 50 lines file.
 
