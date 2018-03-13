@@ -1,5 +1,6 @@
 # PRESENTATION (slide + git) - MINIGAME LeWagon
 
+
 # Introduction
 
 This repository contains a tutorial and a fully functional minigame demo of Flappy Bird using the web game engine phaser.
@@ -22,7 +23,7 @@ The current demo includes the following functionalities
     └───js
         ├───game
         │   ├───managers : each manager is a set of functions
-        │   │   ├───collisions.js : handle all collisions events
+        │   │   ├───collisions.js : handle all collisions events 
         │   │   ├───db.js : CRUD functions for backend for leaderboard (based on leancloud API)
         │   │   ├───events.js : main events of the game functions
         │   │   ├───generators.js : objects ge nerators functions
@@ -62,8 +63,7 @@ We have access to the WebGL API, thus able to use the GPU for calculations using
     ctx.fillRect(25, 25, 100, 100);
     ctx.clearRect(45, 45, 60, 60);
     ctx.strokeRect(50, 50, 50, 50);
-![Example of code to draw a very basic shape, low level API almost the same than canvas API in JS](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520757747748_file.png)
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520853746971_file.png)
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520915901001_file.png)
 
 
 
@@ -85,7 +85,7 @@ The goal is to make web libraries compatible with Minigames. That implementation
 Yes you can already code your own minigame, everything from documentation to developer tools are publicly available
 No you cannot publish it yet, but you can still preview it on your phone (More on IDE presentation)
 
-# 3) What to expect & Limitations
+# 3) What to expect & Limitations 
 ## Games styles : both 2d and 3d is possible
 
 Thanks to the access to WebGL, we can display 3d games, which will be GPU accelerated
@@ -93,16 +93,15 @@ Thanks to the access to WebGL, we can display 3d games, which will be GPU accele
 ## Performances : A slightly more optimized system than Web games
 
 The system is still young and in beta, yet we can already see that performances are very comparable to what web games are capable of
-So a good rule is for the moment, don’t expect more than what a web game can do in term of limitation.
+So a good rule is for the moment, don’t expect more than what a web game can do in term of limitation. 
 
 
-![2D platform games](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520852193215_file.png)
-![3D games however should remain low polygons games (simple shapes)](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520852085823_file.png)
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520852125389_file.png)
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520915931967_file.png)
 
-## Size : Main limitation
 
-One of the biggest limitation of a minigame is coming from its size. Wechat currently allows only up to 4mb packages games.
+
+Size : Main limitation
+One of the biggest limitation of a minigame is coming from its size. Wechat currently allows only up to 4mb packages games. 
 Your game will probably be able to download extra assets from the internet, but take in account those will need to be fetched everytime the game is starting.
 So games should be rather low in term of assets, 3d games should use low poly 3d objects and low quality textures.
 
@@ -124,13 +123,9 @@ The IDE and debugging tools are the same than mini apps. Those are however purel
 The debugging experience is in overall very good, although accusing its youth, might be buggy.
 
 
-![Main IDE is all in Chinese, well thought. Instant development feedback by hot reload system (no need to refresh the page to see your changes). It also includes a function to upload your minigame on the cloud to test it on real phone](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520853287801_file.png)
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520915948300_file.png)
 
-
-
-![You can export your game on your mobile using a qrcode generated on the IDE (see below)](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520853352863_WeChat+Image_20180312191536.png)
-![The mobile preview includes a great debugging tool](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520853359553_WeChat+Image_20180312191527.png)
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520853378258_file.png)
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520915973707_file.png)
 
 
 We have translated the whole interface in english here
@@ -139,8 +134,6 @@ We have translated the whole interface in english here
 ## Mini Game
   - Documentation
     - [Minigame Official Documentation](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
-![Tencent already provides a good documentation in Chinese including everything needed to know to get started](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520850601138_file.png)
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520850385036_file.png)
 
 
 
@@ -151,19 +144,21 @@ We have translated the whole interface in english here
 
 
 ## Gaming Libraries
-  - [Phaser website](http://phaser.io/)
-  - [Phaser : Create your first game tutorial](https://phaser.io/tutorials/making-your-first-phaser-2-game)
-![An excellent tutorial guiding your through the main concepts of Phaser from assets loading to gravity systems](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520850426943_file.png)
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520850385036_file.png)
+
+[**Phaser website**](http://phaser.io/)
+[**Phaser : Create your first game tutorial**](https://phaser.io/tutorials/making-your-first-phaser-2-game)
+
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520916020758_file.png)
 
 
 
-  - [Phaser examples](https://phaser.io/examples)
-![100+ examples with code](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520850364529_file.png)
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520850385036_file.png)
+[**Phaser examples**](https://phaser.io/examples)
 
-  - Phaser 2.9 documentation
-  - [Phaser 2.6 documentation](https://phaser.io/docs/2.6.2/index)
+
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520916061306_file.png)
+
+
+[**Phaser 2.6 documentation**](https://phaser.io/docs/2.6.2/index)
 
 
 # 7) Some advices before starting
@@ -193,5 +188,4 @@ On Lodash, I solve the problem by including module per module and not the whole 
 The current IDE debugging system is working differently from their counterparts on chromium and firefox. One of the biggest problems I have seen is many problems will end up showing a very vague error message without indicating where the problem is coming from, except the file it is failing into.
 Chunking your code in smaller parts is then really important, **as finding a typo mistake on a 1000 lines file without a hint is much more difficult** than on a 50 lines file.
 
-![inputing a “,” after the {} as an error will result in ….](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520913935221_file.png)
-![a very vague error message on the file. “module js/game/objects.js is not defined”. Meaning the problem is inside that file](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520913779723_file.png)
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520916086906_file.png)
