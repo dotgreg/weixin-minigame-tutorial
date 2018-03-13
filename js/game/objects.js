@@ -1,6 +1,6 @@
 import {each, isArray} from '../libs/lodash'
 
-const objects = {}
+const objects = {},
 
 //
 // INIT LOGIC
