@@ -1,3 +1,5 @@
+# Preview
+
 <img src="https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520918011451_record_180313_130658.gif" width="200">
 
 # Introduction
@@ -47,8 +49,9 @@ The current demo includes the following functionalities
 4. Is Web → Minigame and Minigame → Web Possible?
 5. Getting started 
 6. IDE & Debugging tools presentation
-7. Resources and links to get started
-8. Some advices before starting
+7. Making your Minigame Social : available APIs
+8. Resources and links to get started
+9. Some advices before starting
 ## 1) How are Wechat minigames working
 
 **Overall Architecture : Almost like web games**
@@ -106,9 +109,9 @@ One of the biggest limitation of a minigame is coming from its size. Wechat curr
 Your game will probably be able to download extra assets from the internet, but take in account those will need to be fetched everytime the game is starting.
 So games should be rather low in term of assets, 3d games should use low poly 3d objects and low quality textures.
 
-## 4) Is Web → Minigame and Minigame → Web Possible?
+## 4) is Web game→ wechat Minigame possible? wechat Minigame → Web game?
 
-**Web → Minigame : could be very fast to very slow**
+**Web → Minigame : vary a lot according to codebase**
 
 It is possible to port web game to minigame. However, according to the libraries and game engine used, it could range from days to months of development. Prior audit to the game code source is required to understand how much time adaptation will take.
 
@@ -130,7 +133,7 @@ If used a standard web gaming framework to develop minigame like phaser, you cod
 
 
 3. You can now preview it on your phone by clicking on the Eye button and scan the QRcode
-## 5) IDE & Debugging tools presentation
+## 6) IDE & Debugging tools presentation
 
 The IDE and debugging tools are the same than mini apps. Those are however purely in Chinese
 The debugging experience is in overall very good, although accusing its youth, might be buggy.
@@ -143,7 +146,68 @@ The debugging experience is in overall very good, although accusing its youth, m
 
 We have translated the whole interface in english here
 
-## 6) Resources and links to get started
+
+## 7) Making your Mini game Social : available Wechat APIs
+
+One of the core interests of mini games are the seamless access to social features embedded inside wechat to increase their vitality and engagements. Here are the presentation of the main mechanism and how to use them.
+
+**Get current User information**
+
+
+    wx.login({
+      success: function () {
+        wx.getUserInfo(userInfos)
+      }
+    })
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520935394247_file.png)
+
+
+
+- you get
+  - userName
+  - City
+  - Language
+  - Gender
+  - URL of picture
+- you don’t get (yet)
+  - openid (!!, but maybe it is due to the fact minigames are not bound to an official account yet, looks openid will be accessible although https://mp.weixin.qq.com/debug/wxagame/dev/document/open-api/data/UserGameData.html?t=201832)
+- you will never get
+  - phone
+  - real name
+  - any other personal information
+
+**Other possible personal information** 
+
+
+    wx.getLocation() => user location
+    wx.getWeRunData() => get podometer data from werun 
+
+https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/open-ability/authorize.html?t=201832
+
+**Get Friend’s list data who played the game**
+
+
+    wx.getFriendCloudStorage()
+
+
+- get the datas from each user from the user friend list
+- that data can be modified and written 
+- good for friend leader board and in-game friend status indications
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520935428271_file.png)
+
+
+**Get Group list data who played the game**
+
+
+    wx.getGroupCloudStorage()
+
+
+- get the data from each user from a group where the mini game has been shared
+- that data can be modified and written 
+- good for group-based game
+
+
+## 8) Resources and links to get started
 
 **Mini Game**
 
@@ -173,7 +237,7 @@ We have translated the whole interface in english here
 -  [**Phaser 2.6 documentation**](https://phaser.io/docs/2.6.2/index)
 
 
-## 7) Some advices before starting
+## 9) Some advices before starting
 
 **Don’t believe the preview, Always test on real devices**
 example of a code working on emulator but not on real device
@@ -203,5 +267,8 @@ Chunking your code in smaller parts is then really important, **as finding a typ
 
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520917246741_file.png)
+
+
+
 
 
