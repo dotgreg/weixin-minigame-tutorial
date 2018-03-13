@@ -1,5 +1,4 @@
-# PRESENTATION (slide + git) - MINIGAME LeWagon
-
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520918011451_record_180313_130658.gif)
 
 # Introduction
 
@@ -46,9 +45,10 @@ The current demo includes the following functionalities
 2. Can I already code my own minigame ? When will it be released?
 3. What are the limitations? What are the acceptable expectation in term of performances ?
 4. Is Web → Minigame and Minigame → Web Possible?
-5. IDE & Debugging tools presentation
-6. Resources and links to get started
-7. Some advices before starting
+5. Getting started 
+6. IDE & Debugging tools presentation
+7. Resources and links to get started
+8. Some advices before starting
 ## 1) How are Wechat minigames working
 
 **Overall Architecture : Almost like web games**
@@ -78,8 +78,11 @@ The goal is to make web libraries compatible with Minigames. That implementation
 
 ## 2) Can I already code my own minigame ? When will it be released?
 
-Yes you can already code your own minigame, everything from documentation to developer tools are publicly available
-No you cannot publish it yet, but you can still preview it on your phone (More on IDE presentation)
+**Can I already code my own minigame** : Yes you can already code your own minigame, everything from documentation to developer tools are publicly available
+
+C**an it be released yet?** No you cannot publish it yet, but you can still preview it on your phone (More on IDE presentation)
+
+**When will it be release**d? We don’t know yet
 
 ## 3) What to expect & Limitations 
 
@@ -114,6 +117,19 @@ It is possible to port web game to minigame. However, according to the libraries
 If used a standard web gaming framework to develop minigame like phaser, you code will mostly be web compatible, so will work on a browseer
 
 
+## 5) Getting Started with Official Minigame Example
+
+
+1. Download Wechat Miniapp&Minigame IDE 
+    - [Download link](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html?t=2017119)
+2. Follow the steps to get the code example from tencent working
+
+
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520919000521_ezgif.com-gif-maker.gif)
+
+
+
+3. You can now preview it on your phone by clicking on the Eye button and scan the QRcode
 ## 5) IDE & Debugging tools presentation
 
 The IDE and debugging tools are the same than mini apps. Those are however purely in Chinese
@@ -160,7 +176,6 @@ We have translated the whole interface in english here
 ## 7) Some advices before starting
 
 **Don’t believe the preview, Always test on real devices**
-
 example of a code working on emulator but not on real device
 
       static preload(game) {
@@ -188,4 +203,5 @@ Chunking your code in smaller parts is then really important, **as finding a typ
 
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520917246741_file.png)
+
 
