@@ -1,20 +1,27 @@
+// import the library AV of leancloud specially designed for miniapps
 import AV from '../../libs/av-weapp'
 import {each, isObject} from '../../libs/lodash'
 
+// initialize our AV with API key/ID
 AV.init({
  appId: 'QyNXyhk2rss5mu96NqgBMRSi-gzGzoHsz',
  appKey: 'vvxe9iLyeQcQOUMKdkWGG9Y9'
 })
 
+// save a user score according to its current level and if he already played
 export const saveUserScore = (infos, score, callback) => {
   infos.score = score
   getUser(infos.openid, user => {
+    // if user does not exist in DB, create a new one
     if (!isObject(user)) createNewUser(infos, callback)
+    // if it exists and the current score is the best, save that new score
     else if (user.attributes.score < infos.score) setUserScore(user, infos.score, callback)
+    // if it exists but not reaching a new best score for the user, do nothing
     else callback()
   })
 }
 
+// get user from remote db
 export const getUser = (openid, callback) => {
   console.log('=> getUser')
   let query = new AV.Query('Players');
@@ -24,6 +31,7 @@ export const getUser = (openid, callback) => {
    })
 }
 
+// get all users from remote db
 export const getAllUsers = (callback) => {
   console.log('=> getAllUsers')
   let query = new AV.Query('Players');
@@ -34,6 +42,7 @@ export const getAllUsers = (callback) => {
    })
 }
 
+// Create a new user in remote db
 export const createNewUser = (infos, callback) => {
   console.log('=> createNewUser')
   let Player = AV.Object.extend('Players')
@@ -49,6 +58,7 @@ export const createNewUser = (infos, callback) => {
   })
 }
 
+// setting the score of a user in the remote db
 export const setUserScore = (user, score, callback) => {
   // console.log('=> setUserScore', user)
   user.set('score', score)
@@ -58,6 +68,7 @@ export const setUserScore = (user, score, callback) => {
   })
 }
 
+// create fake users on the remote db
 export const createFakeUsers = () => {
   console.log('hydrating')
   saveUserScore({

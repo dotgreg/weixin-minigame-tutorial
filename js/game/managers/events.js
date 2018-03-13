@@ -6,6 +6,7 @@ import {displayLeaderboard} from './leaderboard'
 import {getUserInfos} from './wechat'
 import {saveUserScore, createFakeUsers} from './db'
 
+// when game ending, pause it and show menu
 export const endGame = (game) => {
   game.paused = true
 
@@ -16,15 +17,17 @@ export const endGame = (game) => {
   objects.buttonLeaderboard = new GameButton({game:game, position:{x:0, y: -200}, onClick: () => openLeaderboard(game), name:'leaderboard' })
   objects.buttonLeaderboard.create()
 
-  // recording score in db
+  // get user infos and save his score/create new user
   getUserInfos(infos => {
     saveUserScore(infos, state.score, () => {
+      // make sure we have 2 other users to not have a too empty leaderboard
       createFakeUsers()
     })
   })
 }
 
-export const restartGame = (game) => {
+// when restarting the game, clean all states by reinitializing window.objects and window.state singleton
+export const restartGame = game => {
   game.paused = false
   initObjects()
   initState()
@@ -32,7 +35,8 @@ export const restartGame = (game) => {
   state.gameState = 'started'
 }
 
-export const openLeaderboard = (game) => {
+// when opening leaderboard, fetch last datas and display them
+export const openLeaderboard = game => {
   console.log('openLeaderBoard')
   objects.textLoading = game.add.text(16, 50, `getting best scores...`, { fontSize: '32px', fill: '#ff0000' });
   displayLeaderboard(game, () => {

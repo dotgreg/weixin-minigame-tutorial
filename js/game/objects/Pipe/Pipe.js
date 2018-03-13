@@ -10,7 +10,8 @@ class Pipe  {
     this.game = props.game
     this.bottom = {}
     this.top = {}
-    this.isReached = false
+    this.reachedMiddle = false
+    this.reachedEnd = false
   }
 
   static preload(game) {
@@ -33,16 +34,26 @@ class Pipe  {
   }
 
   increaseScoreOnce() {
-    if (this.isReached) return false
+    if (this.reachedMiddle) return false
     state.score ++
     objects.textScore.text = `score: ${state.score}`
   }
 
-  checkIfReachedMiddle = () => {
+  // if reach middle of screen, increase score counter + 1, only once
+  ifReachedMiddle = () => {
     if (this.top.body.position.x > (this.game.world.width / 2)) return false
 
     this.increaseScoreOnce()
-    this.isReached = true
+    this.reachedMiddle = true
+  }
+
+  ifOutsideScreen = () => {
+    if (this.reachedEnd) return false
+    if (this.top.body.position.x > -200) return false
+
+    // kill the pipe!
+    this.kill()
+    this.reachedEnd = true
   }
 
   kill() {
@@ -54,7 +65,9 @@ class Pipe  {
     this.top.body.position.x -= state.speed
     this.bottom.body.position.x -= state.speed
 
-    this.checkIfReachedMiddle()
+    this.ifReachedMiddle()
+
+    this.ifOutsideScreen()
 
     this.game.physics.arcade.collide(objects.bird.object, this.top, collisionWithPipe, null, this);
     this.game.physics.arcade.collide(objects.bird.object, this.bottom, collisionWithPipe, null, this);

@@ -15,6 +15,7 @@ class GameButton  {
   }
 
   create() {
+    // object initialized here is a button, when clicked, triggers its this.onClick property which is a function
     this.object = this.game.add.button(this.game.world.width / 2 + this.position.x, this.game.world.height / 2 + this.position.y, this.name, this.onClick, this, 1000, 1, 0)
     this.object.anchor.setTo(0.5, 0.5);
   }

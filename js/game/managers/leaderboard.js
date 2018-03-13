@@ -6,9 +6,13 @@ import objects from '../objects'
 import {getUser, getAllUsers, createNewUser, setUserScore, saveUserScore} from './db'
 import {getUserInfos} from './wechat'
 
+// to display the leaderboard
 export const displayLeaderboard = (game, callback) => {
+  // get wechat user infos
   getUserInfos(infos => {
+    // save score/create user if needed
     saveUserScore(infos, state.score, () => {
+      // get best scores overall (that's where we should call wx.getFriendCloudStorage () instead if available to get our friends list that played the game)
       getBestScores(scores => {
 
         each(scores, (score, i) => {

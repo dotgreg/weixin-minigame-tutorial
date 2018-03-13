@@ -1,3 +1,6 @@
+// importing the lodash.js directly would result in a crash on minigame real devices
+// to solve it, I import each module I need separately and potentially adapt it for making it compatible with minigame environment and its lack of DOM/BOM api
+
 import forEach  from './lodash-modules/lodash.foreach'
 import throttle  from './lodash-modules/lodash.throttle'
 import random  from './lodash-modules/lodash.random'

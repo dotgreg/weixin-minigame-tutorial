@@ -1,5 +1,7 @@
 import md5 from '../../libs/md5.min'
 
+// get userInfos from wechat
+// do not currently handle the case the user refuses to share his information
 export const getUserInfos = callback => {
   console.log('getUserInfos')
 
