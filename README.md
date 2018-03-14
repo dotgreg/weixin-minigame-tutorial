@@ -2,7 +2,11 @@
 
 <img src="https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520918011451_record_180313_130658.gif" width="200">
 
+
 # Introduction
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520937778203_file.png)
+
+
 
 This repository contains a tutorial and a fully functional minigame demo of Flappy Bird using the web game engine phaser.
 The purpose is as an advanced proof of concept for LeWagon Minigame Course in March 2018 in Shanghai
@@ -270,8 +274,6 @@ Chunking your code in smaller parts is then really important, **as finding a typ
 
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520917246741_file.png)
-
-
 
 
 
