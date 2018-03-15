@@ -77,7 +77,7 @@ More on [Official Minigame documentation (Chinese)](https://mp.weixin.qq.com/deb
 
 **Web Libraries can get adapted to the Minigame environment**
 
-To bridge the gap between web and minigame, the WeChat minigame team has been working on a special library**,** ****[weapp-adapter](https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/weapp-adapter.zip?t=201832).
+To bridge the gap between web and minigame, the WeChat minigame team has been working on a special library, weapp-adapter.
 The goal is to make web libraries compatible with Minigames. The current implementation of the library, however, is still imperfect and incomplete, and extra work it’s often needed to fix each third-party library you intend to work with.
 
 **Many web gaming engines have already been ported (Officially and unofficially)**
@@ -94,7 +94,7 @@ The goal is to make web libraries compatible with Minigames. The current impleme
 
 ## 2) Can I already code my own minigame ? When will it be released?
 
-**Can I already code my own minigame****?** Yes, you can already code your own minigame! Everything you will need, from documentation to developer tools, are publicly available.
+**Can I already code my own minigame?** Yes, you can already code your own minigame! Everything you will need, from documentation to developer tools, are publicly available.
 
 **Can it be released yet?** No, it can’t be published yet, but you can still preview it on your phone. (More on IDE presentation following)
 
@@ -106,7 +106,7 @@ The goal is to make web libraries compatible with Minigames. The current impleme
 
 Thanks to the access to WebGL, we can also display 3D games, which will be GPU accelerated.
 
-******Performance: A slightly better-optimized system than Web games**
+**Performance: A slightly better-optimized system than Web games**
 
 The system is still young and in beta-testing phase, but we can already see that performance is very similar to what web games are capable of.
 A good rule of thumb, for the moment, is not to expect more than what a web game can do, in terms of limitations. 
@@ -320,6 +320,5 @@ Dividing your code in smaller chunks is therefore very important, **as finding a
 
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520917246741_file.png)
-
 
 
