@@ -69,20 +69,28 @@ We have access to the WebGL API, and thus able to use the GPU for calculations u
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520915901001_file.png)
 
 
-**But implementation ha****s** **some difference****s**
+**But implementation has some differences**
 
 However, the WebGL and Canvas API implementation differ from the native web implementation you can find on most web browsers.
 The running environment of the minigame is [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore?t=201832) on iOS, and [V8](https://developers.google.com/v8/index.html?t=201832) on Android. All of them are running environments without both BOM and DOM. There is no global document ad no window object. So, if you want to use the DOM API to create elements like Canvas and Image, it will throw an error.
 More on [Official Minigame documentation (Chinese)](https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/base/adapter.html?t=201832).
 
-**Web Libraries can get adapted to** **the** **Minigame environment**
+**Web Libraries can get adapted to the Minigame environment**
 
 To bridge the gap between web and minigame, the WeChat minigame team has been working on a special library**,** ****[weapp-adapter](https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/weapp-adapter.zip?t=201832).
 The goal is to make web libraries compatible with Minigames. The current implementation of the library, however, is still imperfect and incomplete, and extra work it’s often needed to fix each third-party library you intend to work with.
 
-**Many web gam****ing** **engines have already been ported (Officially and unofficially)**
+**Many web gaming engines have already been ported (Officially and unofficially)**
 
-…
+
+| Engine       | Focus                                               | Status                                                                                                   |
+| ------------ | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Cocoa        | Chinese 2d UI-based Web Game engine                 | [Officially supported](http://docs.cocos.com/creator/manual/zh/publish/publish-wechatgame.html?t=201832) |
+| Laya         | Chinese 2d & 3d Web Game engine                     | Officially supported                                                                                     |
+| Egret        | Chinese 2d UI-based Web Game engine                 | Officially supported                                                                                     |
+| Unity        | 3D/2D Game engine, industry standard                | Not supported yet                                                                                        |
+| Phaser (Web) | 2D Web Game engine, industry standard in web gaming | Working through [unofficial port](https://github.com/littlee/wechat-small-game-phaser)                   |
+| Threejs      | 3D Web engine, industry standard                    | Working through [unofficial port](https://github.com/Nafeng/wechat-three)                                |
 
 ## 2) Can I already code my own minigame ? When will it be released?
 
@@ -94,10 +102,11 @@ The goal is to make web libraries compatible with Minigames. The current impleme
 
 ## 3) What are the limitations? What are the acceptable expectations in terms of performance?
 
-**Games** **graphics** **styles: both 2****D** **and 3****D are** **possible****.**
+**Games graphics styles: both 2D and 3D are possible.**
+
 Thanks to the access to WebGL, we can also display 3D games, which will be GPU accelerated.
 
-**Performance: A slightly** **better-****optimized system than Web games**
+******Performance: A slightly better-optimized system than Web games**
 
 The system is still young and in beta-testing phase, but we can already see that performance is very similar to what web games are capable of.
 A good rule of thumb, for the moment, is not to expect more than what a web game can do, in terms of limitations. 
@@ -107,19 +116,37 @@ A good rule of thumb, for the moment, is not to expect more than what a web game
 
 
 
-**Size is still the main** **constraint.**
+**Size is still the main constraint.**
+
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1521025162894_ezgif.com-optimize2.gif)
+
+
+
+
+
+
+
+
 
 One of the biggest limitations of a minigame is coming from its size. Wechat currently allows only up to 4MB-packages games. 
-Your game will probably be able to download extra assets from the Internet, but take into account that those will have to be fetched for every time the game is started.
-So, games should be rather poor in terms of assets, and 3D games should use low-poly 3D objects and low quality textures.
+Your game will probably be able to download extra assets from an external server, but take into account that those will have to be fetched for every time the game is started.
+So, games should be rather light in terms of assets, and 3D games should use low-poly 3D objects and low quality textures.
+
+
+
+
+
+
+
+
 
 ## 4) is Web game→ WeChat Minigame conversion possible? What about WeChat Minigame → Web game conversion?
 
-**Web → Minigame** **conversion****:** **depends heavily upon the underlying** **codebase**
+**Web → Minigame conversion: depends heavily upon the underlying codebase**
 
 It is possible to convert web games to minigames. However, according to the specific libraries and game engine used, the process could take from days to months of development. Prior audit of the game source code is required to estimate how much time the particular adaptation will take.
 
-**Minigame → Web** **conversion****:** **it’s f****ast****!**
+**Minigame → Web conversion: it’s fast!**
 
 If using a standard web gaming framework for minigame development, like Phaser, your code will mostly be already web compatible, so it will work on a browser without much tweaking.
 
@@ -129,7 +156,7 @@ If using a standard web gaming framework for minigame development, like Phaser, 
 
 1. Download Wechat Miniapp&Minigame IDE 
     - [Download link](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html?t=2017119)
-2. Follow the steps to get the Tencent sample code working
+2. Follow the steps to get the Tencent sample code up and running.
 
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520919000521_ezgif.com-gif-maker.gif)
@@ -152,8 +179,16 @@ The whole interface has been translated into English here, for clarity.
 
 
 ## 7) Making your Minigame Social: available WeChat APIs
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1521024730827_ezgif.com-optimize1.gif)
+
+
+
 
 One of the core points of interest of minigames is the seamless access to social features embedded inside the WeChat platform, which increase their vitality and engagement rates. Here is a presentation of the main mechanisms and how to use them.
+
+
+
+
 
 **Get current User information**
 
@@ -180,7 +215,7 @@ One of the core points of interest of minigames is the seamless access to social
   - Real name;
   - Any other personal data information;
 
-**Other personal information** **you can get:**
+**Other personal information you can get:**
 
 
     wx.getLocation() => user location
@@ -188,7 +223,7 @@ One of the core points of interest of minigames is the seamless access to social
 
 https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/open-ability/authorize.html?t=201832
 
-**Get Friend****s-****who****-****played****-****the****-****game** **data list**
+Get Friends-who-played-the-game data list
 
 
     wx.getFriendCloudStorage()
@@ -200,7 +235,7 @@ https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/open-ability/authorize.html?
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520935428271_file.png)
 
 
-**Get Group****-****who****-****played****-****the****-****game data** **list**
+**Get Group-who-played-the-game data list**
 
 
     wx.getGroupCloudStorage()
@@ -209,6 +244,10 @@ https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/open-ability/authorize.html?
 - Gets the data from each user within a group where the minigame has been shared;
 - Those data can be modified and written on; 
 - Good for group-based game;
+
+
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1521024022094_gif+mg+group.gif)
+
 
 
 ## 8) Resources and links to get started
@@ -220,10 +259,12 @@ https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/open-ability/authorize.html?
     - [Minigame Official Documentation](https://mp.weixin.qq.com/debug/wxagame/dev/index.html)
   - Code Repositories
     - [Phaser + Minigame template, ready to user littlee/wechat-small-game-phaser](https://github.com/littlee/wechat-small-game-phaser)
+    - Threejs + Minigame port : https://github.com/Nafeng/wechat-three
   - IDE
     - [Download link](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html?t=2017119)
+    
 
-**Gaming Libraries**
+**Phaser Game Library**
 
 
 - [**Phaser website**](http://phaser.io/)
@@ -243,7 +284,11 @@ https://mp.weixin.qq.com/debug/wxagame/dev/tutorial/open-ability/authorize.html?
 
 ## 9) Some advice before you start
 
-**Don’t** **trust** **the preview,** **a****lways test on real devices****.**
+**Don’t trust the preview, always test on real devices.**
+
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1521024152155_ezgif.com-optimize.gif)
+![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1521023715636_file.png)
+
 
 This is an example of a piece of code working on an emulator, but not on a real device:
 
@@ -253,7 +298,7 @@ This is an example of a piece of code working on an emulator, but not on a real 
         // game.load.image('bg', './js/game/objects/Background/bg.jpg') => working only on emulator
       }
 
-**Limit** **usage of t****hird****-p****art****y** **Libraries,** **a****s** **extra work** **is often needed**
+**Limit usage of third-party Libraries, as extra work is often needed**
 
 Libraries like lodash are not working out of the box. You often need to go into the source code and modify the part depending on DOM/BOM APIs to actually achieving loading them.
 On Lodash, you could solve the problem by adding the specific modules one by one, and not the whole library in one go. But it’s not always so easy!
@@ -263,10 +308,10 @@ On Lodash, you could solve the problem by adding the specific modules one by one
     NOT
     npm install --save lodash
 
-**Chunk you****r** **code in smaller files to** **make** **debug****ging easier**
+**Chunk your code in smaller files to make debugging easier**
 
 The current IDE debugging system is working differently from their counterparts on Chrome and Firefox. One of the biggest sources of frustration I have encountered, is that many problems will end up throwing a very vague, non-specific error message, without any information on where the problem is coming from, except for the file it is failing onto.
-Dividing your code in smaller chunks is therefore very important, **as finding a typo** **i****n a** **thousand** **lines** **worth of** **file****,** **without a** **single** **hint**, is much more difficult than finding a typo on a 50-lines file.
+Dividing your code in smaller chunks is therefore very important, **as finding a typo in a thousand lines worth of file, without a single hint**, is much more difficult than finding a typo on a 50-lines file.
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520916086906_file.png)
 
