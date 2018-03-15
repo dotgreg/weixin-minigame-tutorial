@@ -6,19 +6,23 @@
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520937778203_file.png)
 
 
-This repository contains a tutorial and a fully functional minigame demo of Flappy Bird using the web game engine Phaser.
-The purpose is as an advanced proof of concept for LeWagon Minigame Course which will be held in March 2018 in Shanghai.
+This repository contains 
+
+- a phaser-minigame template, ready to use
+- a fully functional minigame demo of Flappy Bird on Phaser
+- an Wechat Minigame guide
+
 The current demo includes the following functionalities:
 
 - A fully working integration of phaser 2.9 + pixiJs + p5 gravity engine (source: [littlee/wechat-small-game-phaser](https://github.com/littlee/wechat-small-game-phaser));
 - An ES6-based scalable code structure (based on import/export features);
 - Game functionalities used:
   - Animated Sprite based on JSON;
-  - Imported textures;
+  - Import and Caching assets system;
   - Animations;
-  - Arcade Gravity system;
-  - Collision system, based on Arcade Gravity;
-  - General leaderboard system based on Leancloud;
+  - A Gravity system;
+  - A Collision system;
+  - A Social leaderboard system based on Leancloud;
 # Code Structure
     ├───game.js : main entry point, Phaser. Game main function declared here
     ├───game.json : minigame configuration
@@ -43,8 +47,7 @@ The current demo includes the following functionalities:
         │       └───state.js : singleton namespace window.state where all the game states and parameters live
         └───libs
             └───lodash-modules
-# Tutorial
-## Goals
+# Minigame Guide
 1. How do WeChat minigames work?
 2. Can I already code my own minigame? When will it be released?
 3. What are the limitations? What are the acceptable expectations in terms of performance?
@@ -320,5 +323,4 @@ Dividing your code in smaller chunks is therefore very important, **as finding a
 
 
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_536890ED260BD52EF9D2F5C9B7BBDBE78141D68963AB701231EB08E07E0D47A6_1520917246741_file.png)
-
 
